@@ -1,0 +1,160 @@
+<div class="jumbotron jumbotron-fluid">
+<div class="row">
+    <div class="col-sm-6" style="margin-left: 100px; margin-top: 20px;">
+        <img src="/assets/img/appointment1.png"class="rounded-circle" alt="" width="70%"height="50%"><br><br><br>
+        <img src="/assets/img/appointment2.png"class="rounded-circle" alt=""width="70%"height="45%">
+    </div>
+    <div id="Apt" class="col-sm-4" style="color: rgb(2, 23, 94);">
+<h6><em style="text-align: center;">“Physical fitness is the first requisite of happiness.”</em></h6><br>
+        <h4 style="text-align:center">Book Your Appointment</h4><br>
+        <form #benForm='ngForm' (submit)='createNew(benForm.value)'>
+
+            <div class='form-group'>
+                <label for='beneficiaryId'>Benefiary ID</label>
+                <input type='text' id='beneficiaryId' class='form-control'  ngModel name='beneficiaryId' #tbeneficiaryId='ngModel'
+                    required>
+            </div>
+            <div *ngIf='tbeneficiaryId.touched && tbeneficiaryId.invalid' class='alert alert-danger'>
+                OOPS! You missed entering Benificary Id
+            </div>
+
+            <div class='form-group'>
+                <label for='beneficiaryFirstName'>First Name</label>
+                <input type="text" id='beneficiaryFirstName' class='form-control'  ngModel name='beneficiaryFirstName'
+                    #tbeneficiaryFirstName='ngModel' required minlength="5" pattern='[A-Za-z ]*'>
+            </div>
+            <div *ngIf='tbeneficiaryFirstName.touched && tbeneficiaryFirstName.invalid'>
+                <div *ngIf='tbeneficiaryFirstName.errors.required' class='alert alert-danger'>
+                    Please enter the first name
+                </div>
+                <div *ngIf='tbeneficiaryFirstName.errors.minlength' class='alert alert-danger'>
+                    Name should be minimum 5 letters
+                </div>
+                <div *ngIf='tbeneficiaryFirstName.errors.pattern' class='alert alert-danger'>
+                    Name should be only alphabetic
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <label for='beneficiaryLastName'>Last Name</label>
+                <input type="text" id='beneficiaryLastName' class='form-control'  ngModel name='beneficiaryLastName'
+                    #tbeneficiaryLastName='ngModel' required minlength="5" pattern='[A-Za-z ]*'>
+            </div>
+            <div *ngIf='tbeneficiaryLastName.touched && tbeneficiaryLastName.invalid'>
+                <div *ngIf='tbeneficiaryLastName.errors.required' class='alert alert-danger'>
+                    Please enter the last name
+                </div>
+                <div *ngIf='tbeneficiaryLastName.errors.minlength' class='alert alert-danger'>
+                    Name should be minimum 5 letters
+                </div>
+                <div *ngIf='tbeneficiaryLastName.errors.pattern' class='alert alert-danger'>
+                    Name should be only alphabetic
+                </div>
+            </div>
+
+
+            <div class='form-group'>
+                <label for="beneficiaryAge">Age</label>
+                <input type="number" id="beneficiaryAge" name="age" class='form-control' ngModel name='beneficiaryAge'
+                    #tbeneficiaryAge='ngModel' required min="18" max="60">
+            </div>
+            <div *ngIf='tbeneficiaryAge.touched && tbeneficiaryAge.invalid'>
+                <div *ngIf='tbeneficiaryAge.errors.required' class='alert alert-danger'>
+                    Please enter the Age
+                </div>
+            </div>
+
+
+            <div class='form-group'>
+                <label for="beneficiaryEmailId">Email ID</label>
+                <input type="email" id="beneficiaryEmailId" class='form-control' ngModel name='beneficiaryEmailId'
+                    #tbeneficiaryEmailId='ngModel' required>
+            </div>
+            <div *ngIf='tbeneficiaryEmailId.touched && tbeneficiaryEmailId.invalid'>
+                <div *ngIf='tbeneficiaryEmailId.errors.required' class='alert alert-danger'>
+                    Please enter the Email ID
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <label for="beneficiaryAddress">Address </label>
+                <input  type="text" id='beneficiaryAddress' class='form-control' ngModel name='beneficiaryAddress'
+                    #tbeneficiaryAddress='ngModel' required pattern='[A-Za-z ]*'>
+            </div>
+            <div *ngIf='tbeneficiaryAddress.touched && tbeneficiaryAddress.invalid'>
+                <div *ngIf='tbeneficiaryAddress.errors.required' class='alert alert-danger'>
+                    Please enter the Address
+                </div>
+            </div>
+
+
+            <div class='form-group'>
+                <label for="beneficiaryMobileNumber">Mobile Number</label>
+                <input type="beneficiaryMobileNumber" id="phone" class='form-control' ngModel name='beneficiaryMobileNumber'
+                    #tbeneficiaryMobileNumber='ngModel' required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+            </div>
+            <div *ngIf='tbeneficiaryMobileNumber.touched && tbeneficiaryMobileNumber.invalid'>
+                <div *ngIf='tbeneficiaryMobileNumber.errors.required' class='alert alert-danger'>
+                    Please enter the Mobile Number
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label class="input-text" for="healthPackages">Health Package</label>
+                </div>
+                <select class="custom-select" id="healthPackages" ngModel name='healthPackages'
+                    #thealthPackages='ngModel' required>
+                    <option value="1">One time Assessment only(rs. 500 only)</option>
+                    <option value="2">4 Sessions per Week(rs. 400 per session)</option>
+                    <option value="3">5 Sessions per Week(rs. 300 per session)</option>
+                </select>
+            </div>
+            <div *ngIf='thealthPackages.touched && thealthPackages.invalid' class='alert alert-danger'>
+                Please enter the Health Package
+            </div>
+            <div class="form-group">
+                <div>
+                    <label class="input-text" for="preference">Trainer Preference</label>
+                </div>
+                <select class="custom-select" id="preference" ngModel name='preference' #tpreference='ngModel'
+                    required>
+                    <option value="MaleTrainer">Male Trainer</option>
+                    <option value="FemaleTrainer">Female Trainer</option>
+                    <option value="NoPreference">No Preference</option>
+                </select>
+            </div>
+            <div *ngIf='tpreference.touched && tpreference.invalid' class='alert alert-danger'>
+                Please select your Trainer Preference
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label class="input-text" for="choice">Do you need Physiotherapist?</label>
+                </div>
+                <select class="custom-select" id="choice" ngModel name='choice' #tchoice='ngModel' required>
+                    <option value="YES">Yes</option>
+                    <option value="NO">No</option>
+                </select>
+            </div>
+            <div *ngIf='tchoice.touched && tchoice.invalid' class='alert alert-danger'>
+                Please choose the choice of Physiotherapist
+            </div>
+            <br>
+            <button type='submit' class='btn btn-primary btn-block' >Submit</button>
+        </form>
+            <p *ngIf='message != null' [ngClass]='msgClass' (click)='home()'>{{message}}! You have successfully
+                registered for Appointment. Click here go to Home Page </p>
+
+            <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+                <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+                    {{msg}}
+                </p>
+            </div>
+
+       
+    </div>
+
+</div>
+</div>

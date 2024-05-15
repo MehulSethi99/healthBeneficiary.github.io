@@ -1,0 +1,50 @@
+<body class=benificiary>
+    <div>
+        <h3 style='text-align:center;'>{{header}}</h3>
+        <table class='table  table-hover' *ngIf='failMessage==null'>
+            <thead>
+            <tr id='b'>
+                <th> ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th id="email">Email Id</th>
+                <th>Address</th>
+                <th>Phone No.</th>
+                <th>Package Selected</th>
+                <th>Trainer</th>
+                <th>Physio Therapist</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr id="a" *ngFor='let b of beneficiaries' style = 'padding:1x'>
+                <td >{{b.beneficiaryId}}</td>
+                <td>{{b.beneficiaryFirstName}}</td>
+                <td>{{b.beneficiaryLastName}}</td>
+                <td>{{b.beneficiaryAge}}</td>
+                <td>{{b.beneficiaryEmailId}}</td>
+                <td>{{b.beneficiaryAddress}}</td>
+                <td>{{b.beneficiaryMobileNumber}}</td>
+                <td>{{b.healthPackage.packageId}}</td>
+                <td>{{b.preference}}</td>
+                <td>{{b.choice}}</td>
+                <td>
+                   <button class='btn btn-danger mr-3' (click)='delete(b.beneficiaryId)'>
+                       <i class="fa fa-trash"></i>
+                   </button>
+                  
+                </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf='failMessage != null'>
+            <img id="s" src="assets/img/1.gif" alt="logo" style="width: 30%; height: 350px; align-content: center;">
+            <h3 style="margin-left: 33%; " >{{failMessage}}</h3>
+        </div>
+    <p *ngIf='message != null' class='alert alert-danger' (click)='message=null'>
+        {{message}} 
+        <img src="assets/img/sad.jfif"  alt="" height="50px" width="50px">
+    </p>
+    </div>
+    </body>

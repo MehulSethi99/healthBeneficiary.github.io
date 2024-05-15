@@ -1,0 +1,21 @@
+.footer{
+    height: 10%;
+    overflow: hidden;
+    position: sticky;
+    top:100%;
+    background-color: black;
+    padding :5px 5px
+    
+    
+}
+.col-md-6{
+  float: right;
+}
+#im{
+  margin-top: 0.5%;
+    float: left;
+    height: 60px;
+}
+.row{
+margin-left: 50%;
+}

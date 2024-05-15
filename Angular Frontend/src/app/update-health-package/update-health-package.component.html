@@ -1,0 +1,39 @@
+<body>
+<div class="update">
+<h3 style="margin-left: 40%; font-family: cursive;
+    font-size: 1.75rem; ">Update health Package</h3>
+    <div class='hel' >
+    
+    <div *ngIf='failMessage==null'>
+       
+        <table class='table'>
+            <tr>
+                <td>Health Package Id</td>
+                <td><input type='number' class='form-control'[(ngModel)]='healthPackage.packageId' readonly></td>
+            </tr>
+            <tr>
+                <td>Health Package Name</td>
+                <td><input type='text' class='form-control'[(ngModel)]='healthPackage.packageName' ></td>
+            </tr>
+            <tr>
+                <td>Health Package Amount</td>
+                <td><input type='number' class='form-control'[(ngModel)]='healthPackage.packageAmount' ></td>
+            </tr>
+        </table>
+        <button (click)='updateHealth()' class='btn btn-success btn-block'>Update</button>
+    </div>
+    <div *ngIf='failMessage != null'>
+        {{failMessage}}
+    </div>
+    <div *ngIf='message != null' [ngClass]='msgClass' (click)='gotoList()'>
+        {{message}}! Click to go back
+    </div>
+    <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+        <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+            {{msg}}
+        </p>
+    </div>
+</div>
+</div>
+</body>

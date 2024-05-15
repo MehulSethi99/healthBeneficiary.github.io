@@ -1,0 +1,47 @@
+<body class = 'health'>
+    
+    <div class='container'>
+        <h3 style='text-align:center;'>{{header}}</h3>
+        <table class='table   table-hover'  *ngIf='failMessage==null'>
+            <thead>
+            <tr id="h">
+                <th>Health Package ID</th>
+                <th>Health Package Name</th>
+                <th>Health Package Amount</th>
+                <th>Action</th>
+            </tr> 
+        </thead>
+            <tbody>
+            <tr id="p" *ngFor='let h of healthPackages' style='padding:2px'>
+                <td>{{h.packageId}}</td>
+                <td>{{h.packageName}}</td>
+                <td>{{h.packageAmount}}</td>
+                <td>
+                    <button class='btn btn-danger mr-3' (click)='delete(h.packageId)'>
+                        <i class="fa fa-trash"></i>
+                    </button>
+                     <a [routerLink]="['/updated',h.packageId]" class="btn btn-primary">
+                         <i class="fa fa-edit"></i>
+                     </a>
+                    
+                 </td>
+            </tr>
+            </tbody>
+    
+        </table>
+       
+        <div *ngIf='failMessage != null'>
+            <img id="s" src="assets/img/1.gif" alt="logo" style="width: 30%; height: 350px; align-content: center;">
+            <h3 style="margin-left: 30%; " >{{failMessage}}</h3>
+        </div>
+        
+        <p *ngIf='message != null' class='alert alert-danger' (click)='message=null'>
+            {{message}}
+            <img src="assets/img/sad.jfif"  alt="" height="50px" width="50px">
+        </p>
+       
+    </div>
+    
+    
+    
+    </body>

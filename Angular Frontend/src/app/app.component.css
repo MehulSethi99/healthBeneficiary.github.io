@@ -1,0 +1,30 @@
+.header {
+ 
+  overflow: hidden;
+  
+  background: linear-gradient(to top, #ccffff 0%, #ffcc00 100%);
+
+  position: relative;
+}
+
+
+#img {
+float:left;
+border-image-width: 1%;
+}
+
+
+#about{
+  float: right;
+}
+
+
+.header-right {
+  float: right;
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  margin-left: 2%;
+}

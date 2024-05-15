@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div id="quote">
+                <h6><em>"To keep the body in good health is a duty otherwise we shall not be able to keep our mind strong and
+                        clear" - Buddha</em></h6>
+            </div>
+            <div id="image">
+                <img src="/assets/img/signup.jpg" class="rounded-circle" alt="" width="60%" style="margin-left:80px;margin-top: 30px;">
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <div id='signup' style=" margin-top: 30px; width: 300px">
+
+                <h3 style="text-align:center">Create your Account</h3>
+                <h6 style="text-align:center">A Path to wellness!</h6>
+                <br>
+                <form #signupForm='ngForm' (submit)='createNew(signupForm.value)'>
+                    <div class='form-group'>
+                        <label for='userName'>Username</label>
+                        <input id='userName' class='form-control' type='text' ngModel name='userName'
+                            #tuserName='ngModel' required>
+                    </div>
+                    <div *ngIf='tuserName.touched && tuserName.invalid' class='alert alert-danger'>
+                        OOPS! You missed entering username
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='password'>Password</label>
+                        <input id='password' class='form-control' type='password' ngModel name='password'
+                            #tpassword='ngModel' required minlength="6" pattern='[A-Za-z ]*'>
+                    </div>
+                    <div *ngIf='tpassword.touched && tpassword.invalid'>
+                        <div *ngIf='tpassword.errors.required' class='alert alert-danger'>
+                            Please enter Password
+                        </div>
+                        <div *ngIf='tpassword.errors.minlength' class='alert alert-danger'>
+                            Password should be minimum 6 Characters
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for='role'>Select a Role</label>
+                        <select id="role" class="form-control" data-role="select-dropdown" ngModel name='role'
+                            #trole='ngModel' required>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <br>
+
+                    <button type='submit' class='btn btn-primary btn-block' [disabled]='signupForm.invalid'>Sign
+                        Up</button>
+                </form>
+
+                <p *ngIf='message != null' [ngClass]='msgClass' (click)='login()'>{{message}}! Click here to Login </p>
+
+                <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+                    <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+                        {{msg}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

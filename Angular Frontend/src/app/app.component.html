@@ -1,0 +1,27 @@
+<div class="header" style="height: 20%;">
+  <div id="img">
+    <img src="assets/img/sac.jpg" alt="logo" height="80px" width="100px" style="border-radius: 50%;" >
+   </div>
+   <div id="about">
+    <img src="assets/img/about1.png" alt="logo"  height="30px" width="30px" routerLink="about" href="#about" >
+   </div>
+   
+    <h1 style="text-align: center; color: purple; font-family: 'Times New Roman', Times, serif;">Health Conscious Application</h1>
+    <h5><em style="color: maroon; margin-left: 30%; margin-top: 40px;">"Start on your path to a better health!"</em></h5>
+  <div class="header-right">
+    
+    <img  routerLink="home"  src="assets/img/hom.jpg" alt="logo" height="50px" width="50px">
+    <div class="nav-item4" *ngIf="service.isLoggedIn()" style="margin-left: 20%;">
+
+      <a [routerLink]="['logout']" class="btn btn-danger"><i class="fa fa-sign-out" style="font-size:18px;color:maroon; "></i></a>
+     </div>
+  </div>
+  <div style="text-align: right;">
+
+    
+
+  </div>
+ </div>
+ 
+ <router-outlet></router-outlet>
+<app-footer></app-footer>

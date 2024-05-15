@@ -1,0 +1,28 @@
+#a{
+    
+    color:black;
+}
+#b{
+    background-color:rebeccapurple;
+    color:white;
+}
+.benificiary{
+    
+    background-image: url("/assets/img/background1.jpeg");
+    opacity:1
+   
+}
+.table {
+    width: 80%;
+    margin-bottom: 1rem;
+    color: #212529;
+    margin-left: 4%;
+}
+h3, .h3 {
+    font-family: cursive;
+    font-size: 1.75rem;
+}
+#s{
+    align-content: center;
+    margin-left: 35%;
+}

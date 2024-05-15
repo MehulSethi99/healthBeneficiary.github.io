@@ -1,0 +1,15 @@
+.hel{
+    border:2px solid green;
+    border-radius: 10px;
+    margin:5px;
+    width:500px;
+    float:left;
+    margin-left: 33%;
+
+}
+
+.update[_ngcontent-xnb-c5] {
+    /* color: lightgreen; */
+    color: darkred;
+}
+

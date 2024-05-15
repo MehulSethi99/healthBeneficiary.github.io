@@ -1,0 +1,26 @@
+#p{
+    
+    color:black;
+}
+
+    
+#h{
+    background-color: rebeccapurple;
+    color:white;
+    
+}
+.health{
+    width:auto;
+    height: 500px;
+    background-image: url("/assets/img/background1.jpeg");
+   opacity: 1;
+  
+}
+h3, .h3 {
+    font-family: cursive;
+    font-size: 1.75rem;
+}
+#s{
+    align-content: center;
+    margin-left: 35%;
+}
